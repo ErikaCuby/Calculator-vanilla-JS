@@ -2,7 +2,7 @@ const displayHistory = document.querySelector(".display-history");
 const displayCalculator = document.querySelector(".display-calculator");
 const displayTempResult = document.querySelector(".display-temp-result");
 const numbers = document.querySelectorAll(".number");
-const operation = document.querySelectorAll(".operation");
+const operations = document.querySelectorAll(".operation");
 const equal = document.querySelector(".equal");
 const clearAll = document.querySelector(".clear-all");
 const clearLastEntity = document.querySelector(".clear-last-entity");
@@ -26,3 +26,30 @@ numbers.forEach((number) => {
     displayCalculator.innerText = disCalculatorNum;
   });
 });
+
+//making sure, we gonna have a number first before adding any oparetion
+operations.forEach((operation) => {
+  operation.addEventListener("click", (e) => {
+    if (!disCalculatorNum) return;
+    //putting haveDot to false, because with new number we can add another dot
+    haveDot = false;
+    const operationName = e.target.innerText;
+    if (disHistoryNum && displayCalculator && lastOperation) {
+      mathOperation();
+    } else {
+      //e.target.innerText stored in displayCalculatorNum is a string and parseFloat is returning it to a number
+      result = parseFloat(disCalculatorNum);
+    }
+    clearVar(operationName);
+  });
+});
+
+//added number and a operation will move to History display  from Calculator display and make it clear
+function clearVar(name = "") {
+  disHistoryNum += disCalculatorNum + "" + name + "";
+  displayHistory.innerText = disHistoryNum;
+  displayCalculator.innerText = "";
+  disCalculatorNum = "";
+  //showing temporary results
+  displayTempResult.innerText = result;
+}
