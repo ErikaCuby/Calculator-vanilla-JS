@@ -55,6 +55,7 @@ function clearVar(name = "") {
   displayTempResult.innerText = result;
 }
 
+//function for turning strings into numbers and real mat operations for calculating
 function mathOperation() {
   if (lastOperation === "x") {
     result = parseFloat(result) * parseFloat(disCalculatorNum);
@@ -68,3 +69,15 @@ function mathOperation() {
     result = parseFloat(result) % parseFloat(disCalculatorNum);
   }
 }
+
+// functionality for equal
+equal.addEventListener("click", (e) => {
+  if (!disCalculatorNum || !disHistoryNum) return; //if we don't have 1st and 2nd number, return nothing
+  haveDot = false;
+  mathOperation();
+  clearVar();
+  displayCalculator.innerText = result;
+  displayTempResult.innerText = "";
+  disCalculatorNum = result;
+  disHistoryNum = "";
+});
