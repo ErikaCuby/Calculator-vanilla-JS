@@ -55,7 +55,7 @@ function clearVar(name = "") {
   displayTempResult.innerText = result;
 }
 
-//function for turning strings into numbers and real mat operations for calculating
+//function for turning strings into numbers and perform calculations with real mat operations
 function mathOperation() {
   if (lastOperation === "x") {
     result = parseFloat(result) * parseFloat(disCalculatorNum);
@@ -70,7 +70,7 @@ function mathOperation() {
   }
 }
 
-// functionality for equal
+// functionality for equal button
 equal.addEventListener("click", (e) => {
   if (!disCalculatorNum || !disHistoryNum) return; //if we don't have 1st and 2nd number, return nothing
   haveDot = false;
@@ -80,4 +80,20 @@ equal.addEventListener("click", (e) => {
   displayTempResult.innerText = "";
   disCalculatorNum = result;
   disHistoryNum = "";
+});
+
+//functionality for clear All button
+clearAll.addEventListener("click", (e) => {
+  displayCalculator.innerText = "0";
+  displayHistory.innerText = "0";
+  displayTempResult.innerText = "0";
+  disCalculatorNum = "";
+  disHistoryNum = "";
+  result = "";
+});
+
+//functionality for clear last entity button
+clearLastEntity.addEventListener("click", (e) => {
+  displayCalculator.innerText = "0";
+  disCalculatorNum = "";
 });
