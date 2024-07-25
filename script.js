@@ -41,6 +41,7 @@ operations.forEach((operation) => {
       result = parseFloat(disCalculatorNum);
     }
     clearVar(operationName);
+    lastOperation = operationName;
   });
 });
 
@@ -52,4 +53,18 @@ function clearVar(name = "") {
   disCalculatorNum = "";
   //showing temporary results
   displayTempResult.innerText = result;
+}
+
+function mathOperation() {
+  if (lastOperation === "x") {
+    result = parseFloat(result) * parseFloat(disCalculatorNum);
+  } else if (lastOperation === "+") {
+    result = parseFloat(result) + parseFloat(disCalculatorNum);
+  } else if (lastOperation === "-") {
+    result = parseFloat(result) - parseFloat(disCalculatorNum);
+  } else if (lastOperation === "/") {
+    result = parseFloat(result) / parseFloat(disCalculatorNum);
+  } else if (lastOperation === "%") {
+    result = parseFloat(result) % parseFloat(disCalculatorNum);
+  }
 }
