@@ -49,7 +49,7 @@ operations.forEach((operation) => {
 function clearVar(name = "") {
   disHistoryNum += disCalculatorNum + "" + name + "";
   displayHistory.innerText = disHistoryNum;
-  displayCalculator.innerText = "";
+  displayCalculator.innerText = "0";
   disCalculatorNum = "";
   //showing temporary results
   displayTempResult.innerText = result;
@@ -97,3 +97,5 @@ clearLastEntity.addEventListener("click", (e) => {
   displayCalculator.innerText = "0";
   disCalculatorNum = "";
 });
+
+//https://www.youtube.com/watch?v=0Vg4EiYPCUc
