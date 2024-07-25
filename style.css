@@ -83,6 +83,10 @@ body {
   background-color: rgba(128, 128, 128, 0.43);
 }
 
+.dot {
+  color: #ea2a43;
+}
+
 .equal {
   grid-column: 3/5;
   background: var(--main-gradient);
@@ -94,6 +98,13 @@ body {
 
 .equal:hover {
   background: var(--hover-gradient);
+}
+.equal:active {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(67, 121, 17) 0.1%,
+    rgb(102, 126, 36) 90%
+  );
 }
 
 .calculator,
